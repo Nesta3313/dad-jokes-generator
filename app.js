@@ -18,14 +18,18 @@ async function getJoke(){
             throw Error (response.statusText)
         }
         const json = await response.json()
-        displayJoke(json.joke)
+        setTimeout(() =>{
+            displayJoke(json.joke)
+        }, 700)
         setTweetButton(json.joke)
     } catch (error) {
         console.log(error)
         alert('Failed to fetch new joke')
     } finally {
-        newQuoteButton.disabled = false
+        setTimeout(() => {
+            newQuoteButton.disabled = false
         spinner.classList.add('hidden')
+        }, 700)
 
 
     }
